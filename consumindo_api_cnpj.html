@@ -1,0 +1,59 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+             Seu CNPJ<p>{cnpj}</p>
+        </h3>
+
+<div>
+    <lightning-input  class="slds-p-around_medium lgc-bg" onchange={handleCnpj} label="Digite o seu cep"></lightning-input>
+<br>
+</div>
+<div class="slds-p-around_medium lgc-bg" if:true={dadosSalva.Name}>
+<p>Nome: {dadosSalva.Name}</p>
+<p>Data de abertura: {dadosSalva.Abertura__c}</p>
+<p>Situação: {dadosSalva.Situacao__c}</p>
+<p>Tipo: {dadosSalva.Tipo__c}</p>
+<p>Fantasia: {dadosSalva.Fantasia__c}</p>
+<p>Porte: {dadosSalva.Porte__c}</p>
+<p>Natureza juridica: {dadosSalva.Natureza_juridica__c}</p>
+<p>Logradouro: {dadosSalva.Logradouro__c}</p>
+<p>Numero: {dadosSalva.Numero__c}</p>
+<p>Municipio: {dadosSalva.Municipio__c}</p>
+<p>Bairro: {dadosSalva.Bairro__c}</p>
+<p>Uf: {dadosSalva.Uf__c}</p>
+<p>Cep: {dadosSalva.Cep__c}</p>
+<p>Email: {dadosSalva.Email__c}</p>
+<p>Telefone: {dadosSalva.Telefone__c}</p>
+<p>Data de fechamento: {dadosSalva.Data_situacao__c}</p>
+<p>CNPJ: {dadosSalva.Cnpj__c}</p>
+<p>Ultima atualização: {dadosSalva.Ultima_atualizacao__c}</p>
+<p>Status: {dadosSalva.Status__c}</p>
+
+<br>
+<h3>Atividade Principal</h3>
+<p>Código: {dadosSalva.Code__c}</p>
+<p>Texto: {dadosSalva.Texto__c}</p>
+<br>
+<h3>Atividades secundaria</h3>
+<p>Código: {dadosSalva.Code1__c}</p>
+<p>Texto: {dadosSalva.Texto1__c}</p>
+
+<lightning-button variant="brand" label ="Salvar" onclick={getSalvando}></lightning-button>
+
+
+
+
+
+</div>
+<div class="slds-p-around_medium lgc-bg" if:false={dadosSalva.Name}>
+    <p>Preencha o campo com o seu cnpj</p>
+</div>
+
+<div class="slds-p-around_medium lgc-bg">
+    <lightning-button label="Buscar" onclick={getBuscar}></lightning-button>
+</div>
+
+</lightning-card>
+    
+</template>
