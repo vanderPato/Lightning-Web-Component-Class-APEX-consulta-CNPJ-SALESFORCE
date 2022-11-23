@@ -1,8 +1,36 @@
 public class Apex_request {
 
     private static final  String URL_REMOTE = 'https://receitaws.com.br/v1/cnpj/';
-      
-   
+
+    @AuraEnabled(cacheable=false)
+        public static void removePermSet(Id lwcRowId){
+        delete [SELECT Id FROM Historicos_cnpj__c WHERE Id = :lwcRowId];
+}
+
+
+
+
+
+    @AuraEnabled(cacheable=true)
+     public static List<Historicos_cnpj__c> getViewHistoric(){
+           		return [SELECT Name FROM Historicos_cnpj__c ORDER BY CreatedById ASC];
+    
+    }
+
+
+    
+
+   @AuraEnabled
+   public static Historicos_cnpj__c getHistorico(Historicos_cnpj__c historicoCNPJ){
+
+    try {
+        insert historicoCNPJ;
+        return historicoCNPJ;
+    
+} catch (Exception e) {
+    throw new AuraHandledException(e.getMessage());
+}
+}
 	
     @AuraEnabled
     public static CNPJ__c getSalvando(CNPJ__c dadosCnp){

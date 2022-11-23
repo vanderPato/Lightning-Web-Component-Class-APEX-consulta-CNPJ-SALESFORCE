@@ -39,11 +39,9 @@
 <p>Código: {dadosSalva.Code1__c}</p>
 <p>Texto: {dadosSalva.Texto1__c}</p>
 
+<br>
+
 <lightning-button variant="brand" label ="Salvar" onclick={getSalvando}></lightning-button>
-
-
-
-
 
 </div>
 <div class="slds-p-around_medium lgc-bg" if:false={dadosSalva.Name}>
@@ -53,6 +51,19 @@
 <div class="slds-p-around_medium lgc-bg">
     <lightning-button label="Buscar" onclick={getBuscar}></lightning-button>
 </div>
+
+<div class="slds-p-around_medium lgc-bg">
+    <lightning-datatable key-field="Id" hide-checkbox-column data={histo.data}  columns={columns}></lightning-datatable>
+</div>
+
+
+
+<lightning-card>
+    <div class="slds-p-around_medium lgc-bg" if:true={listHisto}>
+        <p> Nome {listHisto}</p><br>
+    </div>
+</lightning-card>
+
 
 </lightning-card>
     
